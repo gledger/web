@@ -1,5 +1,3 @@
-require 'multi_json'
-require 'typhoeus'
 require 'ledger/view/root'
 
 module Ledger
