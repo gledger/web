@@ -1,29 +1,23 @@
-<div class="row">
-  <div class="col-sm-3">
-    <h4>Accounts</h4>
-    <% accounts.each do |account| %><div class="col-sm-12">
-      <dl>
-        <dt><a href="/accounts/<%=account['name']%>"><%=account['name']%></a></dt>
-        <dd><%=account['balance']%></dd>
-      </dl>
-    </div>
-    <% end %>
-  </div>
-  <div class="col-sm-9">
-    <h4><%=account_name%> Transactions</h4>
-    <div class="row">
-      <div class="col-sm-2"><h4>Date</h4></div>
-      <div class="col-sm-6"><h4>Payee</h4></div>
-      <div class="col-sm-2"><h4>Amount</h4></div>
-      <div class="col-sm-2"><h4>Balance</h4></div>
-    </div>
-    <% transactions.each do |t| %>
-      <div class="row">
-        <div class="col-sm-2"><%=t.date%></div>
-        <div class="col-sm-6"><%=t.payee%></div>
-        <div class="col-sm-2"><%=t.value%></div>
-        <div class="col-sm-2"><%=t.running_balance%></div>
-      </div>
-    <% end %>
+<div class="col-sm-9">
+  <h4><%=account_name%> Transactions</h4>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Payee</th>
+          <th>Amount</th>
+          <th>Balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% transactions.each do |t| %><tr>
+            <td><%=t.date%></td>
+            <td><%=t.payee%></td>
+            <td><%=t.value%></td>
+            <td><%=t.running_balance%></td>
+        </tr><% end %>
+  </tbody>
+    </table>
   </div>
 </div>

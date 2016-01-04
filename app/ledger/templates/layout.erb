@@ -106,7 +106,20 @@
     </nav>
 
     <div class="container-fluid" role="main">
-      <%== body %>
+      <div class="row">
+        <div class="col-sm-3">
+          <h4>Accounts</h4>
+          <% accounts.each do |account| %><div class="col-sm-12">
+            <dl>
+              <dt><a href="/accounts/<%=account['name']%>"><%=account['name']%></a></dt>
+              <dd><%=account['balance']%></dd>
+            </dl>
+          </div>
+          <% end %>
+        </div>
+
+        <%== body %>
+      </div>
     </div>
 
     <div class="modal fade" id="add_transaction" tabindex="-1" role="dialog" aria-labelledby="addTransactionLabel">

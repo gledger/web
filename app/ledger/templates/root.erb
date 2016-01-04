@@ -1,24 +1,12 @@
-<div class="row">
-  <div class="col-sm-3">
-    <h4>Accounts</h4>
-    <% accounts.each do |account| %><div class="col-sm-12">
-      <dl>
-        <dt><a href="/accounts/<%=account['name']%>"><%=account['name']%></a></dt>
-        <dd><%=account['balance']%></dd>
-      </dl>
-    </div>
-    <% end %>
-  </div>
-  <div class="col-sm-3">
-    <h4>Budget</h4>
-    <% budgets.each do |b| %><div class="col-sm-12">
+<div class="col-sm-3">
+  <h4>Budget</h4>
+  <% budgets.each do |b| %><div class="col-sm-12">
       <dl>
         <dt><%=b['name']%></dt>
         <dd><%=b['balance']%></dd>
       </dl>
-    </div>
-    <% end %>
   </div>
-  <div class="col-sm-6">
-  </div>
+<% end %>
+</div>
+<div class="col-sm-6">
 </div>
