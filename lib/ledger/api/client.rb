@@ -47,6 +47,31 @@ module Ledger
         }
       end
 
+      def create_transaction(data_hash)
+        account_count = 0
+        accounts = []
+        data_hash['add_transaction_account'].each do |row|
+          accounts << {
+            :name => row,
+            :amount => data_hash['add_transaction_value'][account_count],
+          }
+
+          account_count+=1
+        end
+
+        json_data = MultiJson.dump({
+          :date => data_hash['date'],
+          :payee => data_hash['payee'],
+          :accounts => accounts,
+        })
+
+        Typhoeus.post(
+          "#{@base_url}transactions",
+          :body => json_data,
+          :headers => {'Content-Type' => 'application/json'},
+        )
+      end
+
       class Error < StandardError; end
     end
   end
